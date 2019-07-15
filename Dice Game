@@ -4,9 +4,6 @@
 var yourScore = 100;
 var totalScore = 0;
 
-
-//This function get the random number.
-
 function getRanNum(num) {
   num = Math.random();
   num = (num * 6) + 1;
@@ -14,34 +11,28 @@ function getRanNum(num) {
   return num;
 }
 
-
-//This function will determine if you win or lose and it will add and subtract points.
-
 function runDiceGame(a) {
   if (a >= 4) {
     totalScore = yourScore += 10;
-    return console.log("You Win! Your number is " + a + ". Your Score is now " + yourScore);
+    return "You Win! Your number is " + a + ". You gained 10 points and your Score is now " + yourScore;
   }
     if (a <= 3) {
       totalScore = yourScore -= 10;
-      return console.log("You Lose. Your number is " + a + ". Your Score is now " + yourScore);
+      return "You Lose. Your number is " + a + ". You loss 10 points and your Score is now " + yourScore;
     }
 }
 
-//This function begin the game.
 function letsPlay() {
   var play = prompt("Type yes if you want to roll the dice?");
     play = play.toLowerCase();
-    
     if (play === "yes") { 
       var gotNum = getRanNum();
       alert(runDiceGame(gotNum));
       letsPlay();
-    }
-    
+      }
     else {
-      alert("Goodbye");
-    }
+      alert("Goodbye. Final Score " + totalScore);
+      }
 }
   
-letsPlay();
+letsPlay();  
