@@ -1,0 +1,47 @@
+// Dice Rolling Game. If you get a 4 - 6 you win.
+// If you get 1 - 3 you lose.
+
+var yourScore = 100;
+var totalScore = 0;
+
+
+//This function get the random number.
+
+function getRanNum(num) {
+  num = Math.random();
+  num = (num * 6) + 1;
+  num = Math.floor(num);
+  return num;
+}
+
+
+//This function will determine if you win or lose and it will add and subtract points.
+
+function runDiceGame(a) {
+  if (a >= 4) {
+    totalScore = yourScore += 10;
+    return console.log("You Win! Your number is " + a + ". Your Score is now " + yourScore);
+  }
+    if (a <= 3) {
+      totalScore = yourScore -= 10;
+      return console.log("You Lose. Your number is " + a + ". Your Score is now " + yourScore);
+    }
+}
+
+//This function begin the game.
+function letsPlay() {
+  var play = prompt("Type yes if you want to roll the dice?");
+    play = play.toLowerCase();
+    
+    if (play === "yes") { 
+      var gotNum = getRanNum();
+      alert(runDiceGame(gotNum));
+      letsPlay();
+    }
+    
+    else {
+      alert("Goodbye");
+    }
+}
+  
+letsPlay();
